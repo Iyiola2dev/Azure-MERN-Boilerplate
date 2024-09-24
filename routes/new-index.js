@@ -1,9 +1,13 @@
-
+var dotenv = require('dotenv')
 var express = require('express');
 var router = express.Router();
 
+dotenv.config()
+
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://<username>:<password>@<cluster>-vgz77.azure.mongodb.net/test?retryWrites=true&w=majority";
+var url = process.env.ATLAS_URL ;
+
+// console.log(url)
 
 
 router.get('/', (req, res, next) => {
